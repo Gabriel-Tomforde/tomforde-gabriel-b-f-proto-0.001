@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://blke5u6oidour"]
+
+[ext_resource type="Texture2D" uid="uid://b3jf2clvw7f4p" path="res://Textures/particles/alpha/fire_01_a.png" id="1_ohdek"]
+[ext_resource type="PackedScene" uid="uid://cisrn7w1r655j" path="res://Scenes/crystal_trail.tscn" id="2_t88v8"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kwjb3"]
+emission_shape = 6
+emission_ring_axis = Vector3(1, 0, 0)
+emission_ring_height = 0.5
+emission_ring_radius = 0.5
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+spread = 0.0
+orbit_velocity_min = 0.012000095
+orbit_velocity_max = 0.14200011
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_271o6"]
+transparency = 1
+albedo_color = Color(2.5210483, 1.6401026, 0.6155242, 1)
+albedo_texture = ExtResource("1_ohdek")
+
+[sub_resource type="SphereMesh" id="SphereMesh_pdx74"]
+material = SubResource("StandardMaterial3D_271o6")
+radius = 0.05
+height = 0.1
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+amount = 30
+lifetime = 4.0
+speed_scale = 5.45
+fixed_fps = 60
+trail_lifetime = 1.8499999999999999
+process_material = SubResource("ParticleProcessMaterial_kwjb3")
+draw_pass_1 = SubResource("SphereMesh_pdx74")
+
+[node name="light trail" parent="." instance=ExtResource("2_t88v8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39719713, 0)

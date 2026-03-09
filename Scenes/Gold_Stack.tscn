@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://coqee0bb2n2l1"]
+
+[ext_resource type="PackedScene" uid="uid://dmjca7nggjwxb" path="res://Assets/dungeon_assets/props/coin_stack.glb" id="1_3usba"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_knt7j"]
+height = 1.1
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="coin_stack" parent="." instance=ExtResource("1_3usba")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+shape = SubResource("CylinderShape3D_knt7j")

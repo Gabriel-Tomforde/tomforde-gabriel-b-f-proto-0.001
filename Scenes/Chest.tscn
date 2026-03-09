@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm5xo0bf8slm0"]
+
+[ext_resource type="PackedScene" uid="uid://475441008s2o" path="res://Assets/import_examples/chest_gold/chest_gold.glb" id="1_ghm5h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mr3w3"]
+size = Vector3(1, 1.3000001, 1)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="chest_gold2" parent="." instance=ExtResource("1_ghm5h")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.7, 0, 0, 0, 1, 0, 0, 0, 1.3499999, 0, 0.65000004, 0)
+shape = SubResource("BoxShape3D_mr3w3")

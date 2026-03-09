@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://chb1dfbce3xrr"]
+
+[ext_resource type="PackedScene" uid="uid://c33ywy6ougt51" path="res://Assets/dungeon_assets/props/keg_decorated.glb" id="1_xtbmg"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_aj231"]
+height = 2.0170898
+radius = 0.5449219
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v8625"]
+size = Vector3(1.5447998, 1.7683105, 1.2718506)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="keg_decorated2" parent="." instance=ExtResource("1_xtbmg")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.6526659, 0, 0, 0, -4.371139e-08, -1.592064, 0, 1, -6.959132e-08, 0.8, 1.2, 0.008544922)
+shape = SubResource("CylinderShape3D_aj231")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.3789524, -0.9723999, 0.8841553, -0.07633726)
+shape = SubResource("BoxShape3D_v8625")

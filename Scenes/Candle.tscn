@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2w2rtxygrr0q"]
+
+[ext_resource type="PackedScene" uid="uid://dokcrp5k7tgce" path="res://Assets/dungeon_assets/props/candles.glb" id="1_o1eqw"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gpgkp"]
+height = 0.84451294
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="candles" parent="." instance=ExtResource("1_o1eqw")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5598547, 0, 0, 0, 1, 0, 0, 0, 0.5598547, 0.10598996, 0.40229285, 0.011803538)
+shape = SubResource("CylinderShape3D_gpgkp")

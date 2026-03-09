@@ -1,9 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://uxv78fwfmxui"]
+[gd_scene load_steps=8 format=3 uid="uid://uxv78fwfmxui"]
 
 [ext_resource type="PackedScene" uid="uid://bjib8f0ycma08" path="res://Assets/dungeon_assets/props/torch_mounted.glb" id="1_wced7"]
+[ext_resource type="Texture2D" uid="uid://b3jf2clvw7f4p" path="res://Textures/particles/alpha/fire_01_a.png" id="2_beu3c"]
+[ext_resource type="PackedScene" uid="uid://cisrn7w1r655j" path="res://Scenes/crystal_trail.tscn" id="3_spjw2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h1t0l"]
 size = Vector3(1, 1, 0.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kg6dd"]
+emission_shape = 6
+emission_ring_axis = Vector3(1, 0, 0)
+emission_ring_height = 0.5
+emission_ring_radius = 0.5
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+spread = 0.0
+orbit_velocity_min = 0.012000095
+orbit_velocity_max = 0.14200011
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ufd5"]
+transparency = 1
+albedo_color = Color(2.5210483, 1.6401026, 0.6155242, 1)
+albedo_texture = ExtResource("2_beu3c")
+
+[sub_resource type="SphereMesh" id="SphereMesh_05x6m"]
+material = SubResource("StandardMaterial3D_7ufd5")
+radius = 0.05
+height = 0.1
 
 [node name="Torch" type="StaticBody3D"]
 
@@ -15,5 +39,18 @@ transform = Transform3D(0.39999998, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0.25)
 shape = SubResource("BoxShape3D_h1t0l")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0.3)
+transform = Transform3D(0.6854859, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0.3)
 light_color = Color(0.9490196, 0.5137255, 0, 1)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="OmniLight3D"]
+transform = Transform3D(0.49496323, 0, 0, 0, 0.59026444, 0, 0, 0, 0.416879, 0, 0.19368577, 0.099999994)
+amount = 30
+lifetime = 4.0
+speed_scale = 5.45
+fixed_fps = 60
+trail_lifetime = 1.8499999999999999
+process_material = SubResource("ParticleProcessMaterial_kg6dd")
+draw_pass_1 = SubResource("SphereMesh_05x6m")
+
+[node name="light trail" parent="OmniLight3D/GPUParticles3D" instance=ExtResource("3_spjw2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39719713, 0)

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://q01yhl3kkbh4"]
+
+[ext_resource type="PackedScene" uid="uid://45a6313bb1dx" path="res://Assets/dungeon_assets/props/keyring.glb" id="1_kuklq"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ehvtn"]
+height = 5.670471
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="keyring2" parent="." instance=ExtResource("1_kuklq")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.02643317, 0, 0, 0, 1, 0, 0.087314494, 0)
+shape = SubResource("CylinderShape3D_ehvtn")

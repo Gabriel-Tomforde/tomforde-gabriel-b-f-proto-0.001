@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxl0jy5db635x"]
+[gd_scene load_steps=8 format=3 uid="uid://cxl0jy5db635x"]
 
 [ext_resource type="PackedScene" uid="uid://dln5c002c0sfj" path="res://Assets/Crystal asset/Crystal Asset.glb" id="1_c61q8"]
+[ext_resource type="PackedScene" uid="uid://matudhjd8gko" path="res://Scenes/Crystal Trail Purple.tscn" id="2_vacj6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vacj6"]
 size = Vector3(1.3000001, 1, 1.1445313)
@@ -43,3 +44,16 @@ shape = SubResource("BoxShape3D_k8uk5")
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
 transform = Transform3D(2.2715325, 0, 1.9596279, 0, 3.0000005, 0, -1.9596279, 0, 2.2715325, 1.5547177, 1.5175178, -1.1155208)
 shape = SubResource("BoxShape3D_yg7jq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+light_color = Color(0.63529414, 0.19215687, 0.8627451, 1)
+light_energy = 7.759
+light_indirect_energy = 1.112
+omni_range = 6.826
+
+[node name="Crystal Trail" parent="." instance=ExtResource("2_vacj6")]
+transform = Transform3D(3.1247916, 0, 0, 0, 1, 0, 0, 0, 3.1247916, -0.0005555451, 0.206918, -0.1497097)
+
+[node name="Crystal Trail2" parent="." instance=ExtResource("2_vacj6")]
+transform = Transform3D(9.796315, 0, 0, 0, 1, 0, 0, 0, 9.796315, -0.0005555451, 0.206918, -0.1497097)
