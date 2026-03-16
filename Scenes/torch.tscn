@@ -39,18 +39,19 @@ transform = Transform3D(0.39999998, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0.25)
 shape = SubResource("BoxShape3D_h1t0l")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(0.6854859, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2952816, 0.3888476)
 light_color = Color(0.9490196, 0.5137255, 0, 1)
+omni_range = 18.913513
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="OmniLight3D"]
-transform = Transform3D(0.49496323, 0, 0, 0, 0.59026444, 0, 0, 0, 0.416879, 0, 0.19368577, 0.099999994)
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.49496323, 0, 0, 0, 0.59026444, 0, 0, 0, 0.416879, 0, 1.0936857, 0.4)
 amount = 30
 lifetime = 4.0
 speed_scale = 5.45
 fixed_fps = 60
-trail_lifetime = 1.8499999999999999
+trail_lifetime = 1.85
 process_material = SubResource("ParticleProcessMaterial_kg6dd")
 draw_pass_1 = SubResource("SphereMesh_05x6m")
 
-[node name="light trail" parent="OmniLight3D/GPUParticles3D" instance=ExtResource("3_spjw2")]
+[node name="light trail" parent="GPUParticles3D" instance=ExtResource("3_spjw2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39719713, 0)
